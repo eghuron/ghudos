@@ -1,0 +1,6 @@
+- Criar/Deletar pastas
+- Criar/Deletar arquivos de texto/qualquer arquivo
+- editor de texto
+- calculadora
+- algum joguinho
+- easter eggs
