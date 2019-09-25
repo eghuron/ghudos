@@ -1,5 +1,5 @@
-- Criar/Deletar pastas
-- Criar/Deletar arquivos de texto/qualquer arquivo
+- Criar/Deletar pastas *feito*
+- Criar/Deletar arquivos de texto/qualquer arquivo *somente deletar*
 - editor de texto
 - calculadora
 - algum joguinho
