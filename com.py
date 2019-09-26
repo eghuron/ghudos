@@ -50,7 +50,7 @@ def ajuda(): #Chama a função ajuda
 
 def ver(): #Chama a função ver
     name()
-    print(' - Versão 1.0')
+    print(' - Versão 1.0.1')
 
 def horas(): #Chama a função horas/data
     agora = datetime.now()
