@@ -117,21 +117,22 @@ def ir(comando): #Chama a função de ir ate um diretorio
 def crdir(comando): #Chama a função de criar sub-diretórios em um diretório
     global path
 
+    newpath =path.replace('/','\\')
     dirlist = os.listdir('./' + path)
     nomeArquivo = [] #Lista com os nomes dos arquivos no diretorio
     nomesPr = ['com.py', 'main.py']
 
-    stringDir = [comando[6:len(comando) + 1]]
+    stringDir = [comando[6:len(comando) + 1].replace('/','\\')]
     for i in dirlist:
         nomeArquivo.append(os.path.basename(i)) #Adiciona os nomes em uma lista
-    
+
     if stringDir[0] not in nomesPr:
         if stringDir[0] in nomeArquivo: #Verifica se o sub-diretorio que o usuario escreveu ja existia
             print(f'O diretório {stringDir[0]} já existe, não foi possível cria-lo.')
         elif stringDir[0] == '..': #Verifica se o nome da pasta é '..' para que não tenha conflito com o comando IR
             print('Esse nome é invalido.')
         else:
-            os.system('mkdir ' + stringDir[0])
+            os.system('mkdir ' + newpath + stringDir[0])
             print(f'A pasta {stringDir[0]} foi criada!')
     else:
         print('Não é permitido criar pastas com esse nome.')
@@ -139,11 +140,12 @@ def crdir(comando): #Chama a função de criar sub-diretórios em um diretório
 def delete(comando): #Chama a função de deletar algum arquivo ou diretório
     global path
 
+    newpath =path.replace('/','\\')
     dirlist = os.listdir('./' + path)
     nomeArquivo = []
     tipoArquivo = []
     nomesPr = ['com.py', 'main.py'] #Lista com os nomes proibidos de serem deletados
-    stringDel = [comando[8:len(comando) + 1]]
+    stringDel = [comando[8:len(comando) + 1].replace('/','\\')]
    
     for i in dirlist:
         nomeArquivo.append(os.path.basename(i))
@@ -155,14 +157,14 @@ def delete(comando): #Chama a função de deletar algum arquivo ou diretório
     if stringDel[0] in nomesPr and path == '': #Impede que o usuário tente deletar os arquivos do 'sistema'
         print('Está tentando me deletar!')
     else: 
-        
+
         if stringDel[0] in nomeArquivo: #Verifica se ja existe o arquivo no diretório atual
             i = nomeArquivo.index(stringDel[0])
             if tipoArquivo[i] == nomeArquivo[i]: #Verifica o tipo do arquivo, se é um diretório ou um arquivo qualquer.
-                os.system(varRmDir + stringDel[0])
+                os.system(varRmDir + newpath + stringDel[0])
                 print(f'O diretório {stringDel[0]} foi deletado!')
             else:
-                os.system(varDel + stringDel[0])
+                os.system(varDel + newpath +  stringDel[0])
                 print(f'O arquivo {stringDel[0]} foi deletado!')
         else:
             print('Não foi possível deletar o arquivo.')
