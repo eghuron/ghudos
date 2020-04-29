@@ -1,20 +1,20 @@
-from os import system 
+from os import system
 from time import sleep
+
 import com
 
-#Detectar o sistema atual
-com.sisFind()
-#Perfumaria para iniciar o sistema
-system(com.varLimp) #Limpa o terminal do Windows (Lembrar de verificar o sys do usuario)
-com.logo() #Imprime a logo do sistema
+# Detectar o sistema atual
+com.find_sys()
+# Perfumaria para iniciar o sistema
+system(com.varLimp)  # Limpa o terminal do Windows (Lembrar de verificar o sys do usuario)
+com.logo()  # Imprime a logo do sistema
 sleep(1)
 
-
 while True:
-    label = 'G:/' + com.path + '>'  #Label original do sistema
-    commando = str(input(label)) #input de comandos do sistema
+    label = 'G:/' + com.path + '>'  # Label original do sistema
+    commando = str(input(label))  # input de comandos do sistema
 
-    #Testando qual comando foi inserido.
+    # Testando qual comando foi inserido.
     if commando.lower() == 'ajuda':
         com.ajuda()
     elif commando.lower() == 'ver':
@@ -36,5 +36,5 @@ while True:
         com.crdir(commando)
     elif commando.lower()[0:8] == 'deletar ':
         com.delete(commando)
-    else:
-        print(f'"{commando}" não é um comando interno do sistema') #mensagem de erro quando o usuario tenta usar um comando invalido
+    else:  # mensagem de erro quando o usuario tenta usar um comando invalido
+        print(f'"{commando}" não é um comando interno do sistema')
